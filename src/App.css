@@ -1,0 +1,132 @@
+@config "../tailwind.config.js"
+
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Outfit:wght@100..900&display=swap');        /* 
+
+
+
+Font Styles */
+        .nunito-sans-200 { font-family: "Nunito Sans", sans-serif; font-weight: 200; }
+        .nunito-sans-300 { font-family: "Nunito Sans", sans-serif; font-weight: 300; }
+        .nunito-sans-600 { font-family: "Nunito Sans", sans-serif; font-weight: 600; }
+        .nunito-sans-500 { font-family: "Nunito Sans", sans-serif; font-weight: 500; }
+        .nunito-sans-700 { font-family: "Nunito Sans", sans-serif; font-weight: 700; }
+        .nunito-sans-800 { font-family: "Nunito Sans", sans-serif; font-weight: 800; }
+        .nunito-sans-900 { font-family: "Nunito Sans", sans-serif; font-weight: 900; }
+        
+        /* Light & Dark Mode Colors */
+        .Grey50 { background-color: hsl(0, 0%, 99%); color: hsl(200, 15%, 8%); }
+        .Grey200 { color: hsl(0, 0%, 66%); }
+        .Grey400 { color: hsl(0, 0%, 50%); }
+        .Grey950 { color: hsl(200, 15%, 8%); }
+        .Blue950 { background-color: hsl(207, 26%, 17%); color: hsl(0, 100%, 100%); }
+        .Blue900 { color: hsl(209, 23%, 22%); }
+        input::placeholder {
+          color: var(--placeholder-color);
+          transition: color 0.5s ease; 
+        }
+        
+        .shadow-custom {
+          box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1); /* Spread added */
+        }
+        .shadow-custom2 {
+          box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1); /* Spread added */
+        }
+        
+       
+      /* App.css or custom stylesheet */
+
+      .input-dark::placeholder {
+    color: hsl(0, 0%, 66%) !important;  
+}
+
+.input-light::placeholder {
+  color: hsl(0, 0%, 100%);
+}
+
+
+        .hidden { display: none; } /* Hide elements dynamically */
+        
+        body {
+          overflow-y: scroll;
+        }
+        
+        @media (min-width: 640px){
+
+          /* For h1 (from 56px to 14px) */
+          h1 {
+            font-size: calc(14px + (56 - 14) * ((100vw - 640px) / 1920));
+          }
+          
+          h2 {
+            font-size: calc(12px + (40 - 12) * ((100vw - 640px) / 1920));
+          }
+          h3 {
+            font-size: calc(10px + (25 - 10) * ((100vw - 640px) / 1920));
+          }
+          h4 {
+            font-size: calc(8px + (25 - 8) * ((100vw - 640px) / 1920));
+          }
+          /* For body text (from 26px to 7px) */
+          body, p {
+            font-size: calc(7px + (26 - 7) * ((100vw - 640px) / 1920));
+          }
+          
+          /* For buttons (from 26px to 7px) */
+          button {
+            font-size: calc(6px + (26 - 6) * ((100vw - 640px) / 1920));
+          }
+
+          /* For small captions (from 13px to 15px) */
+          .small-text {
+            font-size: calc(8px + (19 - 8) * ((100vw - 640px) / 1920));
+          }
+          .input-placeholder-size::placeholder {
+            font-size: calc(5px + (25 - 5) * ((100vw - 640px) / 1920));
+            transition: font-size 0.3s ease-in-out;
+          }
+          
+
+          i{
+            font-size: calc(7px + (22 - 7) * ((100vw - 640px) / 1920));
+          }
+        }
+
+        @media (max-width: 639px){
+          h1{
+            font-size: calc(15px + (26 - 15) * ((100vw - 220px) /473));
+          } 
+          h2{
+            font-size: calc(3px + (18 - 3) * ((100vw - 0px) /639));
+          } 
+          h3{
+            font-size: calc(2px + (16 - 2) * ((100vw - 0px) /639));
+          } 
+          i{
+            font-size: calc(2px + (22 - 2) * ((100vw - 0px) /639));
+          }
+          body, p {
+            font-size: calc(4px + (22 - 4) * ((100vw - 0px) /639));
+          }
+          button {
+            font-size: calc(2px + (18 - 2) * ((100vw - 0px) /639));
+          }  
+          .small-text {
+            font-size: calc(1px + (18 - 1) * ((100vw - 0px) /639));
+          }
+          input {
+            font-size: calc(1px + (18 - 1) * ((100vw - 0px) /639));
+          }
+        } 
+
+        @keyframes fade-in {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 0.8s ease forwards;
+        }
+     
+                
