@@ -134,7 +134,7 @@ function CountryDetails() {
                     return (
                       <Link
                         key={country}
-                        to={`country/${encodeURIComponent(country)}`}
+                        to={`/country/${encodeURIComponent(country)}`}
                         className="my-auto nunito-sans-600 small-text py-1 px-2 text-center rounded shadow-custom2 text-fluid-btn dark:bg-Blue950 hover:scale-111 hover:bg-red-600 transition-all duration-0 hover:duration-700"
                       >
                         {displayName}

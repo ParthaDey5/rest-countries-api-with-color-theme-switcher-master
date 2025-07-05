@@ -1,4 +1,4 @@
-// main.jsx
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -18,7 +18,7 @@ const basename = rawBase === "/"
 
 createRoot(document.getElementById("root")).render(
   <ThemeProvider>
-    <BrowserRouter basename={basename}>
+    <BrowserRouter  basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
