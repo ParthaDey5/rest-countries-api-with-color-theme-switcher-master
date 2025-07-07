@@ -35,7 +35,9 @@ function App() {
 
   const toggleDropdown = () => {
     const dropdown = document.getElementById("dropdownMenu");
+    const faChevron = document.getElementById("fa-chevron");
     dropdown.classList.toggle("hidden");
+    dropdown.classList.contains("hidden") ? faChevron.classList.replace("fa-chevron-up", "fa-chevron-down") : faChevron.classList.replace("fa-chevron-down", "fa-chevron-up")
   };
 
   
@@ -83,7 +85,7 @@ function App() {
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
-                Filter by Region <i className="fa fa-chevron-down small-text"></i>
+                Filter by Region <i id="fa-chevron" className="fa fa-chevron-down small-text"></i>
               </button>
               <div
                 id="dropdownMenu"
@@ -108,7 +110,7 @@ function App() {
                         .getElementById("dropdownMenu")
                         ?.classList.add("hidden");
                     }}
-                    className={`region_button small-text w-full block text-left px-5 py-1 ${
+                    className={`cursor-pointer region_button small-text w-full block text-left px-5 py-1 ${
                       darkMode ? "hover:bg-gray-300" : "hover:bg-gray-100"
                     }`}
                   >
