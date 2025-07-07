@@ -73,7 +73,7 @@ Font Styles */
           
           /* For buttons (from 26px to 7px) */
           button {
-            font-size: calc(5px + (26 - 5) * ((100vw - 640px) / 1920));
+            font-size: calc(5px + (20 - 5) * ((100vw - 640px) / 1920));
           }
           .button-back {
             font-size: calc(10px + (26 - 10) * ((100vw - 640px) /1920));
