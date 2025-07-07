@@ -135,9 +135,9 @@ function CountryDetails() {
                       <Link
                         key={country}
                         to={`/country/${encodeURIComponent(country)}`}
-                        className="w-full m-auto nunito-sans-600 shadow-fluid hover:scale-111 hover:bg-red-600 transform duration-0 hover:duration-700"
+                        className="w-full m-auto nunito-sans-600 shadow-fluid"
                       >
-                        <button className="!w-full rounded-[5%] cursor-pointer text-center sm:px-[0.2dvw] px-[2dvw] sm:py-[0.1dvw] py-[1dvw]">{displayName}</button>
+                        <button className="!w-full rounded-[5%] cursor-pointer text-center sm:px-[0.2dvw] px-[2dvw] sm:py-[0.1dvw] py-[1dvw] hover:scale-111 hover:bg-red-600 transform duration-0 hover:duration-700">{displayName}</button>
                       </Link>
                     );
                   })
