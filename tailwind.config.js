@@ -4,15 +4,6 @@ module.exports = {
     
   darkMode: 'class', // <— this activates dark: utility support      
 
-    safelist: [
-      'text-fluid-h1',
-      'text-fluid-h2',
-      'text-fluid-h3',
-      'text-fluid-body',
-      'text-fluid-btn',
-      'text-fluid-small',
-      
-    ],
     theme: {
       extend: {
         transitionProperty: {
@@ -20,9 +11,12 @@ module.exports = {
         },
         opacity: {
             65: '0.65',
+          },
+            custom: '0px 0px 10px 3px rgba(0, 0, 0, 0.1)',
+            custom2: '0px 0px 1dvw 1px rgba(0, 0, 0, 0.1)',
           },  
       },
-      
+      plugins: [],
     },
   };
     

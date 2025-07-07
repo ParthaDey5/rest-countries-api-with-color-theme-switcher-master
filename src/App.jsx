@@ -2,6 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
+import Spinner from "./component/Spinner";
 
 function App() {
   const { darkMode, setDarkMode } = useTheme();
@@ -11,33 +12,23 @@ function App() {
   const [selectedRegion, setSelectedRegion] = useState("All Regions");
   const [searchQuery, setSearchQuery] = useState("");
 
+  
   useEffect(() => {
-    const storedCountries = sessionStorage.getItem("countries");
-    const storedRegions = sessionStorage.getItem("selectedRegion");
-
-    if (storedCountries) {
-      setCountries(JSON.parse(storedCountries));
-      setLoading(false);
-    } else {
+    
       // ← fetch now uses Vite’s BASE_URL so it works in GitHub Pages subpath
-      fetch(`${import.meta.env.BASE_URL}data.json`)
-        .then((res) => res.json())
-        .then((data) => {
-          setCountries(data);
-          sessionStorage.setItem("countries", JSON.stringify(data));
-          setLoading(false);
-        });
-    }
+      
+      setTimeout(() => {
+        fetch(`${import.meta.env.BASE_URL}data.json`)
+          .then((res) => res.json())
+          .then((data) => {
+            setCountries(data);
+            sessionStorage.setItem("countries", JSON.stringify(data));
+            setLoading(false);
+          })
+      }, 800);      
+    }, []);
 
-    if (storedRegions) {
-      setSelectedRegion(storedRegions);
-    }
-  }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem("selectedRegion", selectedRegion);
-  }, [selectedRegion]);
-
+ 
   const showRegion = (region) => {
     setSelectedRegion(region);
   };
@@ -47,6 +38,7 @@ function App() {
     dropdown.classList.toggle("hidden");
   };
 
+  
   const filteredCountries = countries.filter(
     (i) =>
       (selectedRegion === "All Regions" || i.region === selectedRegion) &&
@@ -68,7 +60,7 @@ function App() {
                   id="country_select"
                   type="text"
                   placeholder="Search for a country..."
-                  className={`sm:pl-[4dvw] pl-[15dvw] shadow-custom2 sm:w-[30dvw] w-full sm:h-[3.5dvw]  h-[12dvw]  ${
+                  className={`sm:pl-[4dvw] pl-[15dvw] shadow-fluid sm:w-[30dvw] w-full sm:h-[3.5dvw]  h-[12dvw]  ${
                     darkMode
                       ? "Blue950 input-light"
                       : "Grey50 input-dark"
@@ -87,7 +79,7 @@ function App() {
             <div className="sm:w-[12dvw] w-[50dvw] relative">
               <button
                 onClick={toggleDropdown}
-                className={`nunito-sans-600 cursor-pointer w-full sm:h-[3.5dvw] h-[14dvw] shadow-custom2 sm:px-[1.2dvw] px-[4dvw] flex items-center transition-colors duration-400 ease-linear justify-between rounded ${
+                className={`nunito-sans-600 cursor-pointer w-full sm:h-[3.5dvw] h-[14dvw] shadow-fluid sm:px-[1.2dvw] px-[4dvw] flex items-center transition-colors duration-400 ease-linear justify-between rounded ${
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
@@ -95,7 +87,7 @@ function App() {
               </button>
               <div
                 id="dropdownMenu"
-                className={`hidden nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-custom2 rounded absolute w-full mt-2 z-30 ${
+                className={`hidden nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded absolute w-full mt-2 z-30 ${
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
@@ -128,6 +120,7 @@ function App() {
           </div>
 
           <main className="!mt-[3.5dvw] sm:px-0 px-[4dvw]">
+            {loading? <div className="w-full flex flex-grow justify-center"><Spinner/></div> :
             <div
               id="countries"
               className="grid sm:grid-cols-4 grid-cols-1 sm:gap-[7dvw] gap-[15dvw]"
@@ -168,7 +161,7 @@ function App() {
                   </Link>
                 ))
               )}
-            </div>
+            </div>}
           </main>
         </section>
       </div>

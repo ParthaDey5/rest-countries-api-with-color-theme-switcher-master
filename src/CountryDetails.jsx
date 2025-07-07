@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useTheme } from "./ThemeContext";
+import Spinner from "./component/Spinner";
 
 function CountryDetails() {
   const { darkMode, setDarkMode } = useTheme(); 
@@ -12,7 +13,8 @@ function CountryDetails() {
 
   useEffect(() => {
     // fetch now respects BASE_URL for GitHub Pages
-    fetch(`${import.meta.env.BASE_URL}data.json`)
+    setTimeout(() => {
+      fetch(`${import.meta.env.BASE_URL}data.json`)
       .then((response) => response.json())
       .then((data) => {
         const foundCountry = data.find((c) => c.name === name);
@@ -26,15 +28,15 @@ function CountryDetails() {
         } else {
           setborderCountry([]);
         }
-      });
+      })  
+    }, 800);
+
   }, [name]);
 
   if (!country) {
     return (
-      <div className={`overflow-hidden ${darkMode ? 'Blue950' : 'Grey50'} min-h-screen`}>
-        <div className="w-full h-[70vh] flex items-center justify-center">
-          <p className="nunito-sans-700 text-lg"></p>
-        </div>
+      <div className="w-full mt-38">
+        <Spinner/>
       </div>
     );
   }
@@ -44,9 +46,9 @@ function CountryDetails() {
       id="bg" 
       className={`max-w-screen min-h-screen transition-colors duration-400 ease-linear ${darkMode ? 'Blue950' : 'Grey50'}`}
     >
-      <section className="sm:px-[5dvw] px-[10dvw] sm:py-16 py-10">
+      <section className="sm:px-[5dvw] px-[10dvw] sm:py-16 pt-[6dvw]">
         <Link className="inline-flex w-auto" to="/">
-          <button className="hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer 2xl:px-14 md:px-8 sm:px-6 px-7 2xl:py-4 py-2 mb-16 rounded nunito-sans-600 shadow-custom2 flex items-center 2xl:gap-4 gap-2">
+          <button className="button-back hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer sm:px-[2dvw] px-[5dvw] sm:py-[0.6dvw] py-[2.1dvw] mb-[10dvw] rounded-[5%] nunito-sans-600 shadow-fluid flex items-center 2xl:gap-4 sm:gap-[1dvw] gap-[2dvw]">
             <i className="fa-solid fa-arrow-left-long"></i>Back
           </button>
         </Link>
@@ -127,7 +129,7 @@ function CountryDetails() {
               <p className="nunito-sans-600 sm:!block !hidden py-1 whitespace-nowrap mr-[1dvw]">
                 <strong>Border Countries:</strong>{" "}
               </p>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-4 grid-cols-3 sm:gap-[1dvw] gap-[4dvw] space-x-[5dvw]">
                 {borderCountry?.length ? (
                   borderCountry.map((country) => {
                     const displayName = country.split(" (")[0];
@@ -135,9 +137,9 @@ function CountryDetails() {
                       <Link
                         key={country}
                         to={`/country/${encodeURIComponent(country)}`}
-                        className="my-auto nunito-sans-600 small-text py-1 px-2 text-center rounded shadow-custom2 text-fluid-btn dark:bg-Blue950 hover:scale-111 hover:bg-red-600 transition-all duration-0 hover:duration-700"
+                        className="!cursor-pointer w-full m-auto nunito-sans-600 sm:px-[0.2dvw] px-[5dvw] sm:py-[0.1dvw] py-[1dvw] text-center rounded-[5%] shadow-fluid hover:scale-111 hover:bg-red-600 transform duration-0 hover:duration-700"
                       >
-                        {displayName}
+                        <button>{displayName}</button>
                       </Link>
                     );
                   })

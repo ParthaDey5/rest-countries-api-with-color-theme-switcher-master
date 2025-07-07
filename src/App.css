@@ -1,4 +1,3 @@
-@config "../tailwind.config.js"
 
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Outfit:wght@100..900&display=swap');        /* 
 
@@ -13,6 +12,7 @@ Font Styles */
         .nunito-sans-800 { font-family: "Nunito Sans", sans-serif; font-weight: 800; }
         .nunito-sans-900 { font-family: "Nunito Sans", sans-serif; font-weight: 900; }
         
+  @import "tailwindcss";
         /* Light & Dark Mode Colors */
         .Grey50 { background-color: hsl(0, 0%, 99%); color: hsl(200, 15%, 8%); }
         .Grey200 { color: hsl(0, 0%, 66%); }
@@ -29,9 +29,9 @@ Font Styles */
           box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.1); /* Spread added */
         }
         .shadow-custom2 {
-          box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.1); /* Spread added */
+          box-shadow: 0px 0px 10dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
         }
-        
+      
        
       /* App.css or custom stylesheet */
 
@@ -73,7 +73,10 @@ Font Styles */
           
           /* For buttons (from 26px to 7px) */
           button {
-            font-size: calc(6px + (26 - 6) * ((100vw - 640px) / 1920));
+            font-size: calc(5px + (26 - 5) * ((100vw - 640px) / 1920));
+          }
+          .button-back {
+            font-size: calc(10px + (26 - 10) * ((100vw - 640px) /1920));
           }
 
           /* For small captions (from 13px to 15px) */
@@ -87,11 +90,17 @@ Font Styles */
           
 
           i{
-            font-size: calc(7px + (22 - 7) * ((100vw - 640px) / 1920));
+            font-size: calc(9px + (22 - 9) * ((100vw - 640px) / 1920));
+          }
+          .shadow-fluid {
+            box-shadow: 0px 0px 0.5dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
           }
         }
 
         @media (max-width: 639px){
+          .shadow-fluid {
+            box-shadow: 0px 0px 1dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
+          }
           h1{
             font-size: calc(15px + (26 - 15) * ((100vw - 220px) /473));
           } 
@@ -102,12 +111,15 @@ Font Styles */
             font-size: calc(2px + (16 - 2) * ((100vw - 0px) /639));
           } 
           i{
-            font-size: calc(2px + (22 - 2) * ((100vw - 0px) /639));
+            font-size: calc(1.5px + (22 - 1.5) * ((100vw - 0px) /639));
           }
           body, p {
             font-size: calc(4px + (22 - 4) * ((100vw - 0px) /639));
           }
           button {
+            font-size: calc(0.5px + (18 - 0.5) * ((100vw - 0px) /639));
+          }  
+          .button-back {
             font-size: calc(2px + (18 - 2) * ((100vw - 0px) /639));
           }  
           .small-text {
