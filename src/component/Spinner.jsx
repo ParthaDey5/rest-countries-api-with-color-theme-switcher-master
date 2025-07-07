@@ -3,7 +3,7 @@ import React from 'react'
 function Spinner() {
     // Spinner component
 const Spinner = () => (
-    <div className="flex justify-center items-center py-10">
+    <div className="flex justify-center items-center">
       <svg
         className="animate-spin h-8 w-8 text-customBlue-900 dark:text-white"
         xmlns="http://www.w3.org/2000/svg"

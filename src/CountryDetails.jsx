@@ -33,13 +33,7 @@ function CountryDetails() {
 
   }, [name]);
 
-  if (!country) {
-    return (
-      <div className="w-full mt-38">
-        <Spinner/>
-      </div>
-    );
-  }
+  
 
   return (
     <div 
@@ -48,12 +42,16 @@ function CountryDetails() {
     >
       <section className="sm:px-[5dvw] px-[10dvw] sm:py-16 pt-[6dvw]">
         <Link className="inline-flex w-auto" to="/">
-          <button className="button-back hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer sm:px-[2dvw] px-[5dvw] sm:py-[0.6dvw] py-[2.1dvw] sm:mb-[6dvw] mb-[10dvw] rounded-[5%] nunito-sans-600 shadow-fluid flex items-center 2xl:gap-4 sm:gap-[1dvw] gap-[2dvw]">
+          <button className="button-back hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer sm:px-[2dvw] px-[5dvw] sm:py-[0.6dvw] py-[2.1dvw] rounded-[5%] nunito-sans-600 shadow-fluid flex items-center 2xl:gap-4 sm:gap-[1dvw] gap-[2dvw]">
             <i className="fa-solid fa-arrow-left-long"></i>Back
           </button>
         </Link>
-
-        <div className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw]">
+        
+      {!country?
+      <div className={`w-full mt-12 flex justify-center`}>
+        <Spinner />
+      </div> :
+        <div className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw] sm:mt-[6dvw] mt-[10dvw] ">
           <img
             className="sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] shadow-custom2"
             src={country.flags.png}
@@ -150,6 +148,7 @@ function CountryDetails() {
             </div>
           </div>
         </div>
+    }
       </section>
     </div>
   );
