@@ -79,7 +79,7 @@ function App() {
             <div className="sm:w-[12dvw] w-[50dvw] relative">
               <button
                 onClick={toggleDropdown}
-                className={`nunito-sans-600 cursor-pointer w-full sm:h-[3.5dvw] h-[14dvw] shadow-fluid sm:px-[1.2dvw] px-[4dvw] flex items-center transition-colors duration-400 ease-linear justify-between rounded ${
+                className={`nunito-sans-600 cursor-pointer w-full sm:h-[3.5dvw] h-[14dvw] small-text shadow-fluid sm:px-[1.2dvw] px-[4dvw] flex items-center transition-colors duration-400 ease-linear justify-between rounded ${
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
