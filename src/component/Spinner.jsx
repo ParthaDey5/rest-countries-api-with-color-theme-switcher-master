@@ -5,7 +5,7 @@ function Spinner() {
 const Spinner = () => (
     <div className="flex justify-center items-center">
       <svg
-        className="animate-spin h-8 w-8 text-customBlue-900 dark:text-white"
+        className="animate-spin sm:h-[2dvw] sm:w-[2dvw] w-[6dvw] h-[6dvw] text-customBlue-900 dark:text-white"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
