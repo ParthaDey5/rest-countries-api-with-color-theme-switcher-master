@@ -20,11 +20,11 @@ function Navbar() {
       >
         <h2 className="nunito-sans-900">Where in the world?</h2>
         <button
-          className="cursor-pointer flex items-center gap-1"
+          className="cursor-pointer flex items-center justify-center sm:gap-[0.4dvw] gap-[1dvw]"
           onClick={toggleDarkMode}
         >
           <i className="fa-regular fa-moon"></i>
-          <h3 className="nunito-sans-700 sm:pt-0 pt-[0.5dvw]">Dark Mode</h3>
+          <h3 className="nunito-sans-700">Dark Mode</h3>
         </button>
       </nav>
     </div>

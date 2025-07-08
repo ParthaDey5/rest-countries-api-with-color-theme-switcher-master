@@ -90,7 +90,7 @@ Font Styles */
           
 
           i{
-            font-size: calc(9px + (22 - 9) * ((100vw - 640px) / 1920));
+            font-size: calc(9px + (26 - 9) * ((100vw - 640px) / 1920));
           }
           .shadow-fluid {
             box-shadow: 0px 0px 0.5dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
@@ -102,19 +102,19 @@ Font Styles */
             box-shadow: 0px 0px 1dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
           }
           h1{
-            font-size: calc(15px + (26 - 15) * ((100vw - 220px) /473));
+            font-size: calc(9px + (26 - 9) * ((100vw - 220px) /473));
           } 
           h2{
-            font-size: calc(3px + (18 - 3) * ((100vw - 0px) /639));
+            font-size: calc(2px + (22 - 2) * ((100vw - 0px) /639));
           } 
           h3{
             font-size: calc(2px + (16 - 2) * ((100vw - 0px) /639));
           } 
           i{
-            font-size: calc(1.5px + (22 - 1.5) * ((100vw - 0px) /639));
+            font-size: calc(2px + (19 - 2) * ((100vw - 0px) /639));
           }
           body, p {
-            font-size: calc(4px + (22 - 4) * ((100vw - 0px) /639));
+            font-size: calc(2px + (22 - 2) * ((100vw - 0px) /639));
           }
           button {
             font-size: calc(0.5px + (18 - 0.5) * ((100vw - 0px) /639));

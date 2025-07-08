@@ -53,7 +53,7 @@ function CountryDetails() {
       </div> :
         <div className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw] sm:mt-[6dvw] mt-[10dvw] ">
           <img
-            className="sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] shadow-custom2"
+            className="sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] shadow-fluid"
             src={country.flags.png}
             alt={`Flag of ${country.name}`}
           />

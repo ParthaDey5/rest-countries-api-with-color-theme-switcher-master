@@ -131,16 +131,22 @@ function App() {
 
           <main className="!mt-[3.5dvw] sm:px-0 px-[4dvw]">
             {loading? <div className="w-full flex flex-grow justify-center"><Spinner/></div> :
-            <div
+            
+              !loading && filteredCountries.length === 0 && searchQuery.length > 0 ? (
+                <div className="w-full text-center">
+                <i className="fa fa-search-location text-gray-400"></i>
+                <h1 className="nunito-sans-800 whitespace-nowrap">
+                  No country found!
+                </h1>
+                <p className="text-gray-400">
+                  Try adjusting your search or check your selected region.
+                </p>
+                </div>
+              ) : <div
               id="countries"
               className="grid sm:grid-cols-4 grid-cols-1 sm:gap-[7dvw] gap-[15dvw]"
             >
-              {!loading && filteredCountries.length === 0 && searchQuery.length > 0 ? (
-                <h1 className="text-left nunito-sans-800 whitespace-nowrap">
-                  No country found!
-                </h1>
-              ) : (
-                filteredCountries.map((i) => (
+                {filteredCountries.map((i) => (
                   /* ← Link is now relative so basename handles the prefix */
                   <Link
                     key={i.name}
@@ -170,7 +176,7 @@ function App() {
                     </div>
                   </Link>
                 ))
-              )}
+                }
             </div>}
           </main>
         </section>
