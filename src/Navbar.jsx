@@ -8,6 +8,7 @@ function Navbar() {
     setDarkMode(!darkMode);
     // optional: persist preference
     localStorage.setItem("darkMode", JSON.stringify(!darkMode));
+    
   };
 
   return (

@@ -6,12 +6,11 @@ import Spinner from "./component/Spinner";
 
 function App() {
   const { darkMode, setDarkMode } = useTheme();
-
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedRegion, setSelectedRegion] = useState("All Regions");
   const [searchQuery, setSearchQuery] = useState("");
-
+  const [isOpen, setIsOpen] = useState(false);
   
   useEffect(() => {
     
@@ -25,20 +24,26 @@ function App() {
             sessionStorage.setItem("countries", JSON.stringify(data));
             setLoading(false);
           })
-      }, 800);      
+      }, 800);
+      
     }, []);
 
- 
+    useEffect(() => {
+      setIsOpen(false); // Close dropdown when mode changes
+    }, [darkMode]);
+    
+
   const showRegion = (region) => {
     setSelectedRegion(region);
   };
 
   const toggleDropdown = () => {
     const dropdown = document.getElementById("dropdownMenu");
-    const faChevron = document.getElementById("fa-chevron");
-    dropdown.classList.toggle("hidden");
-    dropdown.classList.contains("hidden") ? faChevron.classList.replace("fa-chevron-up", "fa-chevron-down") : faChevron.classList.replace("fa-chevron-down", "fa-chevron-up")
+    setIsOpen(prev => !prev);
+
   };
+
+  
 
   
   const filteredCountries = countries.filter(
@@ -85,11 +90,13 @@ function App() {
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
-                Filter by Region <i id="fa-chevron" className="fa fa-chevron-down small-text"></i>
+                Filter by Region <i id="fa-chevron" className={`fa fa-chevron-down transition-transform duration-300 ease small-text ${isOpen ? ('rotate-180') : 'rotate-0'}`}></i>
               </button>
+              {}
               <div
                 id="dropdownMenu"
-                className={`hidden nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded absolute w-full mt-2 z-30 ${
+                className={`${isOpen ? 'dropdown-open' : 'dropdown-closed'
+                } nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded absolute w-full mt-2 z-30 ${
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
@@ -109,6 +116,7 @@ function App() {
                       document
                         .getElementById("dropdownMenu")
                         ?.classList.add("hidden");
+                        setIsOpen(false);
                     }}
                     className={`cursor-pointer region_button small-text w-full block text-left px-5 py-1 ${
                       darkMode ? "hover:bg-gray-300" : "hover:bg-gray-100"
