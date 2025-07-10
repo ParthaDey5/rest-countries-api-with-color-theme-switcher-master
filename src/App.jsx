@@ -100,7 +100,7 @@ function App() {
               <div
                 id="dropdownMenu"
                 className={`${isOpen ? 'dropdown-open' : 'dropdown-closed'
-                } nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded absolute w-full mt-2 z-30 ${
+                } nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded-md absolute w-full z-30 ${
                   darkMode ? "Blue950" : "Grey50"
                 }`}
               >
@@ -122,7 +122,7 @@ function App() {
                         ?.classList.add("hidden");
                         setIsOpen(false);
                     }}
-                    className={`cursor-pointer region_button small-text w-full block text-left px-5 py-1 ${
+                    className={`cursor-pointer region_button small-text w-full block text-left sm:px-[1.2dvw] px-[4dvw] sm:py-[0.2dvw] py-[0.6dvw] ${
                       darkMode ? "hover:bg-gray-300" : "hover:bg-gray-100"
                     }`}
                   >
@@ -149,7 +149,7 @@ function App() {
               ) : <motion.div
               key={selectedRegion}  // 👈 triggers re-render on region change
               initial={{ opacity: 0, y:30, filter: "blur(1rem)" }}
-        animate={{ opacity: 1, y: -10, filter: "blur(0)" }}
+        animate={{ opacity: 1, y: 0, filter: "blur(0)" }}
         exit={{ opacity: 0, y: 30, filter: "blur(1rem)" }}
         transition={{ duration: 1, ease: "easeOut" }}
               id="countries"
@@ -162,24 +162,24 @@ function App() {
                     key={i.name}
                     to={`country/${encodeURIComponent(i.name)}`}
                     >
-                    <div className="w-full shadow-custom flex flex-col rounded-md opacity-0 animate-fade-in hover:scale-105 transition-transform duration-500 ease-linear">
+                    <div className="w-full shadow-custom flex flex-col rounded-fluid opacity-0 animate-fade-in hover:scale-105 transition-transform duration-500 ease-linear">
                       <img
-                        className="sm:h-[11dvw] h-[54dvw] rounded-t-md"
+                        className="sm:h-[11dvw] h-[54dvw] rounded-t-[0.4dvw]"
                         src={i.flags.png}
                         alt={`Flag of ${i.name}`}
                       />
-                      <h4 className="!transition-none nunito-sans-900 pl-5 pt-5">
+                      <h4 className="!transition-none nunito-sans-900 pl-[1.3dvw] pt-[2dvw]">
                         {i.name}
                       </h4>
-                      <p className="!transition-none nunito-sans-800 small-text pl-5 pt-3">
+                      <p className="!transition-none nunito-sans-800 small-text pl-[1.3dvw] pt-[1.4dvw]">
                         <strong>Population:</strong>{" "}
                         <span className="prc opacity-65">{i.population}</span>
                       </p>
-                      <p className="!transition-none nunito-sans-800 small-text pl-5 pt-1">
+                      <p className="!transition-none nunito-sans-800 small-text pl-[1.3dvw] pt-[0.4dvw]">
                         <strong>Region:</strong>{" "}
                         <span className="prc opacity-65">{i.region}</span>
                       </p>
-                      <p className="!transition-none nunito-sans-800 small-text pl-5 pt-1 pb-9">
+                      <p className="!transition-none nunito-sans-800 small-text pl-[1.3dvw] pt-[0.4dvw] pb-[2.6dvw]">
                         <strong>Capital:</strong>{" "}
                         <span className="prc opacity-65">{i.capital}</span>
                       </p>
