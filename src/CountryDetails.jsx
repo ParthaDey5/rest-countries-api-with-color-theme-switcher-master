@@ -73,11 +73,13 @@ function CountryDetails() {
         exit={{ opacity: 0, y: 30, filter: "blur(1rem)" }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw] sm:mt-[6dvw] mt-[10dvw] ">
-          <img
-            className="sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] shadow-fluid"
+        
+         <img
+            className={`sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] rounded-fluid ${darkMode? "shadow-grey" : "shadow-fluid"}`}
             src={country.flags.png}
             alt={`Flag of ${country.name}`}
-          />
+            />
+        
 
           <div className="flex flex-col justify-between sm:w-1/2 w-full">
             <h1 className="nunito-sans-800 font-bold sm:mb-[1.4dvw] sm:mt-0 mb-[8dvw] mt-[8dvw]">

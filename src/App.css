@@ -31,6 +31,10 @@ Font Styles */
         .shadow-custom2 {
           box-shadow: 0px 0px 10dvw 1px rgba(0, 0, 0, 0.1); /* Spread added */
         }
+        .shadow-grey {
+          box-shadow: 0 0 5rem 0.5rem hsla(0, 0%, 100%, 0.4);
+        }
+        
         .rounded-fluid {
           border-radius: 0.4dvw;
         } 
