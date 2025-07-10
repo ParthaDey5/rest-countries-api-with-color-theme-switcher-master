@@ -3,17 +3,23 @@ import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { useTheme } from "./ThemeContext";
 import Spinner from "./component/Spinner";
+import { motion } from "framer-motion";
+
 
 function CountryDetails() {
   const { darkMode, setDarkMode } = useTheme(); 
   const { name } = useParams(); 
-
+  const isFirstLoadRef = useRef(true); // 👈 persists across renders
   const [country, setCountry] = useState(null);
   const [borderCountry, setborderCountry] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+  
     // fetch now respects BASE_URL for GitHub Pages
-    setTimeout(() => {
+    
+    const fetchData= ()=>{
+
       fetch(`${import.meta.env.BASE_URL}data.json`)
       .then((response) => response.json())
       .then((data) => {
@@ -28,15 +34,23 @@ function CountryDetails() {
         } else {
           setborderCountry([]);
         }
+        setIsLoading(false)
+        isFirstLoadRef.current=false
       })  
-    }, 800);
-
+    }
+    if (isFirstLoadRef.current) {
+      setIsLoading(true)
+      setTimeout(() => 
+        fetchData(), 800);
+      } else {
+        fetchData()
+    }
   }, [name]);
 
   
 
   return (
-    <div 
+    <div
       id="bg" 
       className={`max-w-screen min-h-screen transition-colors duration-400 ease-linear ${darkMode ? 'Blue950' : 'Grey50'}`}
     >
@@ -47,11 +61,18 @@ function CountryDetails() {
           </button>
         </Link>
         
-      {!country?
+      {isLoading?
       <div className={`w-full mt-12 flex justify-center`}>
         <Spinner />
       </div> :
-        <div className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw] sm:mt-[6dvw] mt-[10dvw] ">
+      
+        <motion.div
+        key={name}
+        initial={{ opacity: 0, y:30, filter: "blur(1rem)" }}
+        animate={{ opacity: 1, y: -10, filter: "blur(0)" }}
+        exit={{ opacity: 0, y: 30, filter: "blur(1rem)" }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="flex sm:!flex-row flex-col sm:items-center items-start justify-between sm:gap-[10dvw] gap-[8dvw] sm:mt-[6dvw] mt-[10dvw] ">
           <img
             className="sm:w-1/2 w-full sm:h-[27dvw] h-[60dvw] shadow-fluid"
             src={country.flags.png}
@@ -147,7 +168,7 @@ function CountryDetails() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
     }
       </section>
     </div>

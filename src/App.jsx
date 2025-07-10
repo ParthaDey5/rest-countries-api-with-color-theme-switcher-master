@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 import Spinner from "./component/Spinner";
+import {motion} from "framer-motion"
 
 function App() {
   const { darkMode, setDarkMode } = useTheme();
@@ -34,7 +35,9 @@ function App() {
     
 
   const showRegion = (region) => {
-    setSelectedRegion(region);
+   setTimeout(() => {
+     setSelectedRegion(region);
+    }, 300); 
   };
 
   const toggleDropdown = () => {
@@ -52,6 +55,7 @@ function App() {
       i.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  
   return (
     <>
       <div
@@ -142,16 +146,22 @@ function App() {
                   Try adjusting your search or check your selected region.
                 </p>
                 </div>
-              ) : <div
+              ) : <motion.div
+              key={selectedRegion}  // 👈 triggers re-render on region change
+              initial={{ opacity: 0, y:30, filter: "blur(1rem)" }}
+        animate={{ opacity: 1, y: -10, filter: "blur(0)" }}
+        exit={{ opacity: 0, y: 30, filter: "blur(1rem)" }}
+        transition={{ duration: 1, ease: "easeOut" }}
               id="countries"
               className="grid sm:grid-cols-4 grid-cols-1 sm:gap-[7dvw] gap-[15dvw]"
             >
                 {filteredCountries.map((i) => (
                   /* ← Link is now relative so basename handles the prefix */
+                  <div>
                   <Link
                     key={i.name}
                     to={`country/${encodeURIComponent(i.name)}`}
-                  >
+                    >
                     <div className="w-full shadow-custom flex flex-col rounded-md opacity-0 animate-fade-in hover:scale-105 transition-transform duration-500 ease-linear">
                       <img
                         className="sm:h-[11dvw] h-[54dvw] rounded-t-md"
@@ -175,9 +185,10 @@ function App() {
                       </p>
                     </div>
                   </Link>
+                </div>
                 ))
                 }
-            </div>}
+            </motion.div>}
           </main>
         </section>
       </div>
