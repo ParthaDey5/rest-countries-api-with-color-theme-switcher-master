@@ -150,7 +150,7 @@ function CountryDetails() {
               <p className="nunito-sans-600 sm:!block !hidden py-1 whitespace-nowrap mr-[1dvw]">
                 <strong>Border Countries:</strong>{" "}
               </p>
-              <div className="grid sm:grid-cols-4 grid-cols-3 sm:gap-[1dvw] gap-[4dvw] space-x-[5dvw]">
+              <div className="grid sm:grid-cols-4 grid-cols-3 sm:gap-[1dvw] gap-[4dvw] space-x-[5dvw] my-auto">
                 {borderCountry?.length ? (
                   borderCountry.map((country) => {
                     const displayName = country.split(" (")[0];
@@ -165,7 +165,7 @@ function CountryDetails() {
                     );
                   })
                 ) : (
-                  "None"
+                  <p>None</p> 
                 )}
               </div>
             </div>
