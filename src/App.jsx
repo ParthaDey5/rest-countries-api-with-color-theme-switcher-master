@@ -59,7 +59,7 @@ function App() {
   return (
     <>
       <div
-        className={`min-w-screen min-h-[1024px] overflow-x-hidden transition-all duration-400 ease-linear ${
+        className={`fixed top-0 max-w-screen min-h-[1024px] overflow-x-hidden transition-all duration-400 ease-linear ${
           darkMode ? "Blue950" : "Grey50"
         }`}
       >
