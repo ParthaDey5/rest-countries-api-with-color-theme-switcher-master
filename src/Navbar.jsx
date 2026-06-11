@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <div>
       <nav
-        className={`fixed top-0 inset-x-0 !z-50 border-b-[4px] overflow-x-hidden 2xl:py-[2dvw] sm:py-[1.4dvw] py-[6dvw] sm:px-[5dvw] px-[4dvw] shadow flex justify-between transition-colors duration-400 ease-linear ${
+        className={`fixed top-0 inset-x-0 !z-50 border-b-[4px] overflow-x-hidden sm:h-[5dvw] h-[12dvw] sm:px-[5dvw] px-[4dvw] shadow flex justify-between transition-colors duration-400 ease-linear ${
           darkMode ? "Blue950 border-[#202c36]" : "Grey50 border-gray-100"
         }`}
       >
