@@ -59,11 +59,11 @@ function App() {
   return (
     <>
       <div
-        className={`fixed top-0 max-w-screen min-h-[1024px] overflow-x-hidden transition-all duration-400 ease-linear ${
+        className={` max-w-screen min-h-[1024px] overflow-x-hidden transition-all duration-400 ease-linear ${
           darkMode ? "Blue950" : "Grey50"
         }`}
       >
-        <section className="sm:py-[3.5dvw] py-[8dvw] sm:px-[5dvw] px-[5dvw] w-full h-full">
+        <section className="fixed top-0 sm:py-[3.5dvw] py-[8dvw] sm:px-[5dvw] px-[5dvw] w-full h-full">
           <div className="flex sm:flex-row flex-col sm:gap-0 gap-[11dvw] sm:mb-0 mb-[11dvw] justify-between">
             <div className="relative">
               <form onSubmit={(e) => e.preventDefault()}>
