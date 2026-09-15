@@ -52,7 +52,7 @@ function CountryDetails() {
   return (
     <div
       id="bg" 
-      className={`max-w-screen min-h-screen transition-colors duration-400 ease-linear ${darkMode ? 'Blue950' : 'Grey50'}`}
+      className={`mt-[5dvw] sm:mt-auto max-w-screen min-h-screen transition-colors duration-400 ease-linear ${darkMode ? 'Blue950' : 'Grey50'}`}
     >
       <section className="sm:px-[5dvw] px-[10dvw] sm:py-16 pt-[6dvw]">
         <Link className="inline-flex w-auto" to="/">
