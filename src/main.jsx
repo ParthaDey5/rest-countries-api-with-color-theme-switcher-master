@@ -14,7 +14,7 @@ createRoot(document.getElementById("root")).render(
       <Navbar />
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="country/:name" element={<CountryDetails />} />
+        <Route path="/country/:name" element={<CountryDetails />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>
