@@ -23,7 +23,7 @@ function Navbar() {
           className="cursor-pointer flex items-center justify-center sm:gap-[0.4dvw] gap-[1dvw]"
           onClick={toggleDarkMode}
         >
-          <i className="fa-regular fa-moon"></i>
+          <i className={`fa-regular ${darkMode? "fa-sun" : "fa-moon"}`}></i>
           <h3 className="nunito-sans-700">{darkMode?"Light Mode":"Dark Mode"}</h3>
         </button>
       </nav>
