@@ -18,7 +18,7 @@ function Navbar() {
           darkMode ? "Blue950 border-[#202c36]" : "Grey50 border-gray-100"
         }`}
       >
-        <h2 className="nunito-sans-900 bg-red-400">Where in the world?</h2>
+        <h2 className="nunito-sans-900">Where in the world?</h2>
         <button
           className="cursor-pointer flex items-center justify-center sm:gap-[0.4dvw] gap-[1dvw]"
           onClick={toggleDarkMode}
