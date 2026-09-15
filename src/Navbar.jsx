@@ -24,7 +24,7 @@ function Navbar() {
           onClick={toggleDarkMode}
         >
           <i className="fa-regular fa-moon"></i>
-          <h3 className="nunito-sans-700">Dark Mode</h3>
+          <h3 className="nunito-sans-700">{darkMode?"Light Mode":"Dark Mode"}</h3>
         </button>
       </nav>
     </div>
