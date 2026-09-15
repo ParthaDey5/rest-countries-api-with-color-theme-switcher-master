@@ -15,7 +15,7 @@ function Navbar() {
     <div>
       <nav
         className={`fixed top-0 inset-x-0 !z-50 border-b-[4px] overflow-x-hidden sm:h-[5dvw] h-[15dvw] sm:px-[5dvw] px-[4dvw] shadow flex items-center justify-between transition-colors duration-400 ease-linear ${
-          darkMode ? "Blue950 border-gray-100" : "bg-white"
+          darkMode ? "Blue950 border-gray-400" : "bg-white border-none"
         }`}
       >
         <h2 className="nunito-sans-900">Where in the world?</h2>
