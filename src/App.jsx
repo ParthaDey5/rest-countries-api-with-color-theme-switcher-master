@@ -151,7 +151,7 @@ function App() {
             >
                 {filteredCountries.map((i) => (
                   /* ← Link is now relative so basename handles the prefix */
-                  <div>
+                  <div className=`${darkMode? "bg-[#2b3945]" : "bg-white"}` >
                   <Link
                     key={i.name}
                     to={`country/${encodeURIComponent(i.name)}`}
