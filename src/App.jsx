@@ -13,10 +13,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   
-  useEffect(() => {
-    
-      // ← fetch now uses Vite’s BASE_URL so it works in GitHub Pages subpath
-      
+  useEffect(() => {     
       setTimeout(() => {
         fetch(`/data.json`)
           .then((res) => res.json())
