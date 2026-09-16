@@ -13,6 +13,16 @@ Font Styles */
         .nunito-sans-900 { font-family: "Nunito Sans", sans-serif; font-weight: 900; }
         
   @import "tailwindcss";
+
+/* index.css */
+:root {
+  --btn-bg: #ffffff;
+  --btn-text: #000000;
+}
+.dark {
+  --btn-bg: #2b3945;
+  --btn-text: #ffffff;
+}
         /* Light & Dark Mode Colors */
         .Grey50 { background-color: hsl(0, 0%, 99%); color: hsl(200, 15%, 8%); }
         .Grey200 { color: hsl(0, 0%, 66%); }
