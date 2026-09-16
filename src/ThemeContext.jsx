@@ -1,21 +1,30 @@
-import { createContext, useContext, useState, useEffect } from "react";
+// ThemeContext.jsx
+import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
-export const ThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(() =>
-    localStorage.getItem("darkMode") === "true"
-  );
+
+export function ThemeProvider({ children }) {
+  const [darkMode, setDarkMode] = useState(() => {
+    // optional: read saved preference
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
-    localStorage.setItem("darkMode", darkMode);
+    const root = document.documentElement; // <html>
+    if (darkMode) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
   }, [darkMode]);
-   
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       {children}
     </ThemeContext.Provider>
   );
-};
+}
 
 export const useTheme = () => useContext(ThemeContext);
