@@ -88,7 +88,7 @@ function App() {
               <button
                 onClick={toggleDropdown}
                 className={`nunito-sans-600 cursor-pointer w-full sm:h-[3.5dvw] h-[14dvw] small-text shadow-fluid sm:px-[1.2dvw] px-[4dvw] flex items-center transition-colors duration-400 ease-linear justify-between rounded ${
-                  darkMode ? "Blue950" : "Grey50"
+                  darkMode ? "bg-[#2b3945]" : "Grey50"
                 }`}
               >
                 Filter by Region <i id="fa-chevron" className={`fa fa-chevron-down transition-transform duration-300 ease small-text ${isOpen ? ('rotate-180') : 'rotate-0'}`}></i>
@@ -98,7 +98,7 @@ function App() {
                 id="dropdownMenu"
                 className={`${isOpen ? 'dropdown-open' : 'dropdown-closed'
                 } nunito-sans-600 transition-all duration-400 ease-linear sm:py-[1dvw] py-[3dvw] shadow-fluid rounded-md absolute w-full z-30 ${
-                  darkMode ? "Blue950" : "Grey50"
+                  darkMode ? "bg-[#2b3945]" : "Grey50"
                 }`}
               >
                 {[
