@@ -151,12 +151,12 @@ function App() {
             >
                 {filteredCountries.map((i) => (
                   /* ← Link is now relative so basename handles the prefix */
-                  <div className=`${darkMode? "bg-[#2b3945]" : "bg-white"}` >
+                  <div>
                   <Link
                     key={i.name}
                     to={`country/${encodeURIComponent(i.name)}`}
                     >
-                    <div className="w-full shadow-custom flex flex-col rounded-fluid opacity-0 animate-fade-in hover:scale-105 transition-transform duration-500 ease-linear">
+                    <div className={`w-full shadow-custom flex flex-col rounded-fluid opacity-0 animate-fade-in hover:scale-105 transition-transform duration-500 ease-linear ${darkMode? "bg-[#2b3945]" : "bg-white"}`}>
                       <img
                         className="sm:h-[11dvw] h-[54dvw] rounded-t-[0.4dvw]"
                         src={i.flags.png}
