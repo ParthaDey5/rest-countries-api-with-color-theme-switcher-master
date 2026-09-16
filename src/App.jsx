@@ -40,9 +40,7 @@ function App() {
   };
 
   const toggleDropdown = () => {
-    const dropdown = document.getElementById("dropdownMenu");
     setIsOpen(prev => !prev);
-
   };
 
   
@@ -116,9 +114,6 @@ function App() {
                     type="button"
                     onClick={() => {
                       showRegion(region);
-                      document
-                        .getElementById("dropdownMenu")
-                        ?.classList.add("hidden");
                         setIsOpen(false);
                     }}
                     className={`cursor-pointer region_button small-text w-full block text-left sm:px-[1.2dvw] px-[4dvw] sm:py-[0.2dvw] py-[0.6dvw] ${
