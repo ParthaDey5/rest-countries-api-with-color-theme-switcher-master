@@ -15,11 +15,7 @@ function CountryDetails() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-  
-    // fetch now respects BASE_URL for GitHub Pages
-    
-    const fetchData= ()=>{
-
+   const fetchData= ()=>{
       fetch(`/data.json`)
       .then((response) => response.json())
       .then((data) => {
@@ -56,7 +52,7 @@ function CountryDetails() {
     >
       <section className="sm:px-[5dvw] px-[10dvw] sm:py-16 pt-[6dvw]">
         <Link className="inline-flex w-auto" to="/">
-          <button className="button-back hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer sm:px-[2dvw] px-[5dvw] sm:py-[0.6dvw] py-[2.1dvw] rounded-[5%] nunito-sans-600 shadow-fluid flex items-center 2xl:gap-4 sm:gap-[1dvw] gap-[2dvw]">
+          <button className="button-back dark:bg-[#2b3945] hover:bg-red-600 hover:scale-111 transition-all duration-0 hover:duration-700 cursor-pointer sm:px-[2dvw] px-[5dvw] sm:py-[0.6dvw] py-[2.1dvw] rounded-[5%] nunito-sans-600 shadow-fluid flex items-center 2xl:gap-4 sm:gap-[1dvw] gap-[2dvw]">
             <i className="fa-solid fa-arrow-left-long"></i>Back
           </button>
         </Link>
