@@ -70,7 +70,7 @@ function App() {
                   placeholder="Search for a country..."
                   className={`sm:pl-[4dvw] pl-[15dvw] shadow-fluid sm:w-[30dvw] w-full sm:h-[3.5dvw]  h-[12dvw]  ${
                     darkMode
-                      ? "Blue950 input-light"
+                      ? "bg-[#2b3945] input-light"
                       : "Grey50 input-dark"
                   } rounded nunito-sans-300  transition-colors duration-400 ease-linear input-placeholder-size !my-auto`}
                   value={searchQuery}
