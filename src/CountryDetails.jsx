@@ -20,7 +20,7 @@ function CountryDetails() {
     
     const fetchData= ()=>{
 
-      fetch(`${import.meta.env.BASE_URL}data.json`)
+      fetch(`/data.json`)
       .then((response) => response.json())
       .then((data) => {
         const foundCountry = data.find((c) => c.name === name);
