@@ -49,7 +49,7 @@ function App() {
   const filteredCountries = countries.filter(
     (i) =>
       (selectedRegion === "All Regions" || i.region === selectedRegion) &&
-      i.name.toLowerCase().includes(searchQuery.toLowerCase())
+      i.name.toLowerCase().includes(searchQuery.toLowerCase().trim())
   );
 
   
