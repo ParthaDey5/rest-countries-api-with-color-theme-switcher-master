@@ -22,7 +22,6 @@ function App() {
           .then((res) => res.json())
           .then((data) => {
             setCountries(data);
-            sessionStorage.setItem("countries", JSON.stringify(data));
             setLoading(false);
           })
       }, 800);
