@@ -18,7 +18,7 @@ function App() {
       // ← fetch now uses Vite’s BASE_URL so it works in GitHub Pages subpath
       
       setTimeout(() => {
-        fetch(`${import.meta.env.BASE_URL}data.json`)
+        fetch(`/data.json`)
           .then((res) => res.json())
           .then((data) => {
             setCountries(data);
