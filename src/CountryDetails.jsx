@@ -153,7 +153,7 @@ function CountryDetails() {
                     return (
                       <Link
                         key={country}
-                        to={`/country/:name`}
+                        to={`/country/${country}`}
                         className="flex w-full m-auto nunito-sans-600 shadow-fluid rounded-[2px] !p-0"
                       >
                         <button className="!w-full !h-full bg-[var(--btn-bg)] my-auto rounded-[2px] cursor-pointer text-center sm:px-[0.2dvw] px-[2dvw] sm:py-[0.1dvw] py-[1dvw] hover:scale-111 hover:bg-red-600 transform hover:duration-700">{displayName}</button>
