@@ -16,7 +16,7 @@ Font Styles */
 
 /* index.css */
 :root {
-  --btn-bg: #ffffff;
+  --btn-bg: hsl(0, 0%, 99%);
   --btn-text: #000000;
 }
 .dark {
