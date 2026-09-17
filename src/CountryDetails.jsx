@@ -149,14 +149,14 @@ function CountryDetails() {
               <div className="grid sm:grid-cols-4 grid-cols-3 sm:gap-[1dvw] gap-[4dvw] space-x-[5dvw]">
                 {borderCountry?.length ? (
                   borderCountry.map((country) => {
-                    
+                    const displayName = country.split(" (")[0];
                     return (
                       <Link
                         key={country}
                         to={`/country/${country}`}
                         className="flex w-full m-auto nunito-sans-600 shadow-fluid rounded-[2px] !p-0"
                       >
-                        <button className="!w-full !h-full bg-[var(--btn-bg)] my-auto rounded-[2px] cursor-pointer text-center sm:px-[0.2dvw] px-[2dvw] sm:py-[0.1dvw] py-[1dvw] hover:scale-111 hover:bg-red-600 transform hover:duration-700">{country}</button>
+                        <button className="!w-full !h-full bg-[var(--btn-bg)] my-auto rounded-[2px] cursor-pointer text-center sm:px-[0.2dvw] px-[2dvw] sm:py-[0.1dvw] py-[1dvw] hover:scale-111 hover:bg-red-600 transform hover:duration-700">{displayName}</button>
                       </Link>
                     );
                   })
